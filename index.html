@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>BINGO</h2>
+    <div class="bingo-card">
+      <div class="bingo-cell">A. 1スタンプ獲得</div>
+      <div class="bingo-cell">B. 2日連続</div>
+      <div class="bingo-cell">C. 景品応募</div>
+      <div class="bingo-cell">D. ８スタンプ獲得</div>
+      <div class="bingo-cell">E. 5スポットに行く</div>
+      <div class="bingo-cell">F. イベント参加者50人達成</div>
+      <div class="bingo-cell">G. スタンプラリー5日目</div>
+      <div class="bingo-cell">H. 背景画像変更</div>
+      <div class="bingo-cell">I. 16スタンプ獲得</div>
+      <div class="bingo-cell">J. 10スポットに行く</div>
+      <div class="bingo-cell">K. オープンチャット50人参加</div>
+      <div class="bingo-cell">L. スタンプラリー15日目</div>
+      <div class="bingo-cell"></div>
+      <div class="bingo-cell">M. 24スタンプ獲得</div>
+      <div class="bingo-cell">N. 15スポットに行く</div>
+      <div class="bingo-cell">O. イベント参加者100人達成</div>
+      <div class="bingo-cell">P. スタンプラリー30日目</div>
+      <div class="bingo-cell">Q. スタンプカードを確認</div>
+      <div class="bingo-cell">R. 景品応募3回目</div>
+      <div class="bingo-cell">S. 同じスポットに10回行く</div>
+      <div class="bingo-cell">T. オープンチャット100人参加</div>
+      <div class="bingo-cell">U. スタンプラリー45日目</div>
+      <div class="bingo-cell">V. 終了証をゲット</div>
+      <div class="bingo-cell">W. イベントアンケート回答</div>
+      <div class="bingo-cell">X. 同じスポットに15回行く</div>
+    </div>
+  </body>
+  <style>
+    .bingo-card {
+      margin: Auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid black;
+    }
+
+    .bingo-cell {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      font-size: 10px;
+      overflow: scroll;
+      font-weight: bold;
+      font-family: sans-serif;
+      background-image: url("https://i.ibb.co/Wv8X3LVh/1.png");
+    }
+
+    .bingo-cell.cleared {
+      background-size: cover;
+      background-blend-mode: lighten;
+    }
+  </style>
+
+  <script>
+    const cells = document.querySelectorAll(".bingo-cell");
+    const clearCells = [0, 2, 3, 4, 12];
+    for (let i = 0; i < clearCells.length; i++) {
+      cells[clearCells[i]].classList.add("cleared");
+    }
+  </script>
+</html>

@@ -13,12 +13,12 @@
         width="100px"
         height="100px"
       />
-      クールシェアたからづか<br>2025<br />
+      クールシェアたからづか<br />2025<br />
       BINGOの遊び方
     </h1>
     <h2>BINGOの遊び方</h2>
     <div class="rule">
-      <ol>
+      <ol class="rule">
         <li><strong>マスに書いてあるチャレンジ</strong>をやってみよう！</li>
         <li>
           クリアしたマスには、こんなスタンプが押されるよ！<br />
@@ -97,14 +97,22 @@
         C. 景品応募 <br />
         R. 景品応募3回目
       </summary>
-      <p></p>
+      <p>
+      <h4>景品に応募しよう</h4>      
+      <h5>8スタンプ獲得ごとに何度も応募できます</h5>
+      <h5>応募方法</h5>
+      <h5>詳しくはここから ↓↓ </h5>
+      <a class="btn"href="https://coolsharetakarazuka.github.io/gift/">景品応募について</a></p>
     </details>
 
     <details class="according">
       <summary class="no4">
         D. 8スタンプ獲得<br />I. 16スタンプ獲得<br />M. 24スタンプ獲得<br />
       </summary>
-      <p></p>
+      <h5>いろいろなスポットを回って<br>スタンプをゲットしよう！！<h5></h5>
+      <h5>スタンプ獲得方法</h5>
+      <a class="btn" href="https://coolsharetakarazuka.github.io/map/">スポットを探そう！！</a>
+      <a class="btn" href="https://liff.line.me/2007302862-3mj9r7W5">スタンプを獲得しよう！！</a>
     </details>
 
     <details class="according">
@@ -112,7 +120,8 @@
         E. スタンプラリー5カ所達成<br />J. スタンプラリー10カ所達成<br />N.
         スタンプラリー15カ所達成
       </summary>
-      <p></p>
+      <h5>異なるスポットで、<br>スタンプをゲットしよう！！</h5>
+      <h5>自分が何カ所のスポット達成しているのか?</h5>
     </details>
 
     <details class="according">
@@ -120,7 +129,14 @@
         F. オープンチャット25人参加<br />K. オープンチャット50人参加<br />O.
         オープンチャット100人参加<br />T. オープンチャット150人参加<br />
       </summary>
-      <p></p>
+      <h5>オープンチャットに参加しよう！！</h5>
+      <h5>周りの方にもシェアしてみんなで達成しよう</h5>
+
+      <h5>現在のオープンチャット参加者・・・<br>
+      3人</h5>
+
+      <h5>参加方法</h5>
+      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn">オープンチャットに参加する</a>
     </details>
 
     <details class="according">
@@ -128,7 +144,10 @@
         G. スタンプ獲得5日目<br />L. スタンプ獲得15日目<br />P.
         スタンプ獲得20日目<br />U. スタンプ獲得45日目<br />
       </summary>
-      <p></p>
+      <h5>いろいろなスポットを回って<br>スタンプをゲットしよう！！<h5></h5>
+      <h5>スタンプ獲得方法</h5>
+      <a class="btn" href="https://coolsharetakarazuka.github.io/map/">スポットを探そう！！</a>
+      <a class="btn" href="https://liff.line.me/2007302862-3mj9r7W5">スタンプを獲得しよう！！</a>
     </details>
 
     <details class="according">
@@ -154,19 +173,18 @@
     </details>
   </body>
   <style>
-
-h1 {
-        font-family: sans-serif;
-        display: flex;
-        align-items: center; /* 縦方向の中央揃え */
-        justify-content: center; /* 横方向の中央揃え */
-        text-align: center;
-        background: skyblue;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        font-size: 95%;
-      }
+    h1 {
+      font-family: sans-serif;
+      display: flex;
+      align-items: center; /* 縦方向の中央揃え */
+      justify-content: center; /* 横方向の中央揃え */
+      text-align: center;
+      background: skyblue;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      font-size: 95%;
+    }
     div.no1 {
       background-color: #1e90ff;
       border-style: solid;
@@ -398,6 +416,42 @@ h1 {
       border-left: 30px solid skyblue;
       z-index: 0;
     }
+
+    h2 {
+      border: dotted blue;
+      text-align: center;
+    }
+
+    ol.rule li {
+      font-family: sans-serif;
+    }
+
+    h5{
+      text-align: center;
+    }
+
+    .btn{
+                  display: inline-block;
+                  padding: 0.5em 1em;
+                  text-decoration: none;
+                  background: #668ad8;
+                  color: #fff;
+                  border-bottom: solid 4px #627295;
+                  border-radius: 3px;
+                  font-family: sans-serif;
+                  font-weight: bold;
+                  width: 90%;
+                  text-align: center;
+                  margin: 10px;;
+                }
+
+                .btn:active {
+                /*ボタンを押したとき*/
+                -webkit-transform: translateY(4px);
+                transform: translateY(4px);/*下に動く*/
+                box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+                border-bottom: none;
+                }
   </style>
 
   <script>

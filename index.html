@@ -17,17 +17,13 @@
       BINGOの遊び方
     </h1>
     <h2>BINGOの遊び方</h2>
+    <img src="./bingo.png" alt="bingoCard" class="bingoCard"><br>
     <div class="rule">
       <ol class="rule">
         <li><strong>マスに書いてあるチャレンジ</strong>をやってみよう！</li>
         <li>
-          クリアしたマスには、こんなスタンプが押されるよ！<br />
-          <img
-            class="bingo"
-            src="./図1.png"
-            alt="クリアスタンプ"
-            style="max-width: 100px"
-          />
+          クリアしたマスは<strong class="orange">オレンジのマス</strong>です！<br />
+         
         </li>
         <li>
           <strong>タテ・ヨコ・ナナメ</strong>のどれかがそろうと… <br /><strong
@@ -35,9 +31,7 @@
           >をプレゼント！
         </li>
         <li>
-          なんと！全部のマスをクリアすると… <br /><strong
-            >ビンゴバージョンのスミレン限定画像</strong
-          >もゲットできるよ！
+          なんと！全部のマスをクリアすると… <br /><img src="https://i.ibb.co/Wv8X3LVh/1.png" alt="" class="bingo">もゲットできるよ！
         </li>
       </ol>
     </div>
@@ -452,6 +446,18 @@
                 box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
                 border-bottom: none;
                 }
+
+    img.bingoCard{
+      display:block;
+      width: 50%;
+      margin:auto;
+    }
+
+    strong.orange{
+      background-color: orange;
+      color: #fff;
+      padding: 5px ;
+    }
   </style>
 
   <script>

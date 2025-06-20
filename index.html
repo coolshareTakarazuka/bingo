@@ -6,7 +6,8 @@
     <title>BINGO 遊び方</title>
   </head>
   <body>
-    <h1>
+    <header class="header">
+    <h1 class="logo">
       <img
         src="https://i.ibb.co/Wv8X3LVh/1.png"
         alt="IMG-5451"
@@ -16,6 +17,227 @@
       クールシェアたからづか<br />2025<br />
       BINGOの遊び方
     </h1>
+
+    <div class="nav">
+        <strong>MENU</strong>
+      <input id="drawer_input" class="drawer_hidden" type="checkbox">
+
+      <label for="drawer_input" class="drawer_open"><span></span></label>
+
+      <nav class="nav_content">
+        <h2>攻略したいマスをタップ</h2>
+        <img src="bingo.png" usemap="#ImageMap" alt="" class="explain" />
+    <map name="ImageMap">
+      <div class="nav_list">
+      <area shape="rect" coords="14,199,284,471" href="#no1" alt="" />
+      <area shape="rect" coords="292,200,562,470" href="#no2" alt="" />
+      <area shape="rect" coords="570,199,839,469" href="#no3" alt="" />
+      <area shape="rect" coords="847,199,1117,469" href="#no4" alt="" />
+      <area shape="rect" coords="1125,198,1388,471" href="#no5" alt="" />
+      <area shape="rect" coords="14,475,285,746" href="#no6" alt="" />
+      <area shape="rect" coords="290,477,563,747" href="#no7" alt="" />
+      <area shape="rect" coords="568,477,840,749" href="#no8" alt="" />
+      <area shape="rect" coords="847,477,1118,747" href="#no9" alt="" />
+      <area shape="rect" coords="1125,477,1388,748" href="#no10" alt="" />
+      <area shape="rect" coords="14,754,286,1026" href="#no11" alt="" />
+      <area shape="rect" coords="292,755,563,1025" href="#no12" alt="" />
+      <area shape="rect" coords="847,754,1117,1025" href="#no14" alt="" />
+      <area shape="rect" coords="1125,754,1390,1025" href="#no15" alt="" />
+      <area shape="rect" coords="15,1032,284,1303" href="#no16" alt="" />
+      <area shape="rect" coords="291,1032,562,1304" href="#no17" alt="" />
+      <area shape="rect" coords="569,1033,840,1303" href="#no18" alt="" />
+      <area shape="rect" coords="846,1032,1117,1303" href="#no19" alt="" />
+      <area shape="rect" coords="1124,1031,1391,1303" href="#no20" alt="" />
+      <area shape="rect" coords="15,1308,285,1580" href="#no21" alt="" />
+      <area shape="rect" coords="292,1309,563,1580" href="#no22" alt="" />
+      <area shape="rect" coords="570,1310,840,1581" href="#no23" alt="" />
+      <area shape="rect" coords="847,1310,1118,1580" href="#no24" alt="" />
+      <area shape="rect" coords="1125,1309,1390,1580" href="#no25" alt="" />
+    </map>
+  </div>
+
+      </nav>
+  </div>
+  </header>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawerCheckbox = document.getElementById('drawer_input')
+      const navLinks = document.querySelectorAll('.nav_list area')
+
+      navLinks.forEach(link => {
+        link.addEventListener('click',() => {
+          drawerCheckbox.checked = false;
+        });
+      });
+    });
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const drawerCheckbox = document.getElementById('drawer_input');
+  const buttons = document.querySelectorAll('.menuButton'); // ← 複数取得
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      drawerCheckbox.checked = true;
+    });
+  });
+});
+
+</script>
+
+  <style>
+      .header{
+          display: flex;
+          position:sticky;
+          top: 0;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0,20px;
+          background: skyblue;
+          z-index: 999;
+          
+      }
+
+      .logo{
+          
+          font-size: 24px;
+      }
+
+      .drawer_hidden{
+          display: none;
+      }
+
+      .drawer_open{
+          display: flex;
+          height: 60px;
+          width: 60px;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 100;
+          cursor: pointer;
+
+      }
+
+      .drawer_open span,
+      .drawer_open span:before,
+      .drawer_open span:after{
+          content:'';
+          display: block;
+          height: 3px;
+          width: 25px;
+          border-radius: 3px;
+          background: #333;
+          transition: 0.5s;
+           position: absolute;
+      }
+
+      .drawer_open span:before{
+          bottom: 8px;
+      }
+
+      .drawer_open span:after{
+          top: 8px;
+      }
+
+      #drawer_input:checked ~ .drawer_open span {
+          background: rgba(255,255,255,0);
+      }
+
+      #drawer_input:checked ~ .drawer_open span::before {
+          bottom: 0;
+          transform: rotate(45deg);
+      }
+
+      #drawer_input:checked ~ .drawer_open span::after {
+          top: 0;
+          transform: rotate(-45deg);
+      }
+  
+      .nav_content{
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 100%;
+          z-index: 99;
+          background: #fff;
+          transition: .5s;
+      }
+
+      .nav_list{
+          list-style:none;
+          counter-reset: li;
+
+      }
+
+      .nav_list li:nth-child(4n+1){
+        border: dashed 1px #FFA79F;
+      }
+
+      .nav_list li:nth-child(4n+2){
+        border: dashed 1px #fbaf5d;
+      }
+
+      .nav_list li:nth-child(4n+3){
+        border: dashed 1px #9FCDFF;
+      }
+
+      .nav_list li:nth-child(4n+4){
+        border: dashed 1px #AFEBB6;
+      }
+      .nav_list li {
+      position: relative;
+      font-weight: bold;
+      line-height: 28px;
+      padding-left: 40px;
+      margin: 10px 0;
+      }
+
+
+      .nav_list li:before{
+        counter-increment: li;
+      content: counter(li);
+        position: absolute;
+        left: -1px;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+
+      }
+
+      .nav_list li:nth-child(4n+1):before{
+        background: #FFA79F;
+      }
+      
+      .nav_list li:nth-child(4n+2):before{
+        background: #fbaf5d;
+      }
+      
+      .nav_list li:nth-child(4n+3):before{
+        background: #9FCDFF;
+      }
+      
+      .nav_list li:nth-child(4n+4):before{
+        background: #AFEBB6;
+      }
+      
+
+      #drawer_input:checked ~ .nav_content{
+          left: 0;
+      }
+  </style>
+  </header>
     <h2>BINGOの遊び方</h2>
     <img src="./bingo.png" alt="bingoCard" class="bingoCard" /><br />
     <div class="rule">
@@ -84,17 +306,147 @@
     <div class="bingo-card">
       <h3 class="bingo-cell" id="no1">A. 1スタンプ獲得</h3>
       <h4>スタンプラリーを始めよう！</h4>
-      <h4>>> STEP1 LINEの友達追加をしよう！</h4>
-      <h4>>> STEP2 ユーザー登録をしよう！</h4>
-      <h4>>> STEP3 スポットのQRコードを読み取ろう！</h4>
+      <h4 class="underLine">>> STEP1 LINEの友達追加をしよう！</h4>
+
+      <a href="https://lin.ee/7ayIPAG"
+        ><img
+          src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
+          alt="友だち追加"
+          height="36"
+          border="0"
+      /></a>
+      <div class="slider-group">
+        <div class="slider-card">
+          ①《＋(友達追加)》をタップ
+          <img src="./1-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          ②《QRコード》をタップ
+          <img src="./1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          ③LINEのQRコードを読み込む
+          <img src="./1-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          ④《友達追加》をタップ
+          <img src="./1-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          ⑤《トーク》をタップ
+          <img src="./1-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          🎉友達追加完了！！
+          <img src="./1-6.png" class="slider-card-img" />
+        </div>
+      </div>
+      <br />
+
+      <h4 class="underLine">>> STEP2 ユーザー登録をしよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①画像をタップ
+          <img src="./2-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《許可する》をタップ
+          <img src="./2-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          <img src="./2-2-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《ユーザー登録をしよう》をタップ
+          <img src="./2-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④ ①~⑤に答える
+          <img src="./2-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤《ユーザー登録》をタップ
+          <img src="./2-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉ユーザー登録完了！！
+          <img src="./2-6.png" class="slider-card-img" />
+        </div>
+  
+      </div><br>
+
+      <h4 class="underLine">>> STEP3 スポットのQRコードを読み取ろう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
 
       <h3 class="bingo-cell" id="no2">B. 2日連続スタンプを押す</h3>
       <h4>2日連続で外に出かけて、スタンプを獲得しよう！</h4>
-      <h4>>> スタンプを獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >QRコードを<br />読み取ろう！</a
       >
-      <h4>>> マップでスポットを見つけよう！</h4>
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
       <a
         href="https://coolsharetakarazuka.github.io/map/
       "
@@ -104,7 +456,42 @@
 
       <h3 class="bingo-cell" id="no3">C. 景品応募</h3>
       <h4>８スタンプ獲得して景品に応募しよう！</h4>
-      <h4>>> 景品応募方法</h4>
+      <h4 class="underLine">>> 景品応募方法</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">スタンプカード画面<br>もしくは<br>スタンプ獲得画面
+          <img src="./10-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">景品応募フォーム<br>ここをタップ
+          <img src="./10-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">景品応募フォーム
+          <img src="./10-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">好きな景品を<strong>全て</strong>選択
+          <img src="./10-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">本名フルネーム<br>を入力<br>
+          <img src="./10-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">郵便番号を入力<br>
+          <img src="./10-6.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">以降の住所を入力<br>
+          <img src="./10-7.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑧電話番号を<br>入力<br>
+          <img src="./10-8.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑨《送信》をタップ<br>
+          <img src="./10-9.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉景品応募完了<br>
+          <img src="./10-10.png" class="slider-card-img" />
+        </div>
+        </div>
+
       <a href="https://coolsharetakarazuka.github.io/gift/" class="btn"
         >景品について</a
       >
@@ -112,11 +499,57 @@
       <h3 class="bingo-cell" id="no4">D. ８スタンプ獲得</h3>
 
       <h4>８スタンプ獲得しよう！</h4>
-      <h4>>> スタンプを獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >QRコードを<br />読み取ろう！</a
       >
-      <h4>>> マップでスポットを見つけよう！</h4>
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
       <a
         href="https://coolsharetakarazuka.github.io/map/
       "
@@ -126,7 +559,30 @@
 
       <h3 class="bingo-cell" id="no5">E. スタンプラリー５カ所達成</h3>
       <h4>合計５カ所のスポットに訪れよう！</h4>
-      <h4>>> マップでスポットを見つけよう！</h4>
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
       <a
         href="https://coolsharetakarazuka.github.io/map/
       "
@@ -134,32 +590,123 @@
         >マップページで<br />スポットを見つけよう！</a
       >
 
-      <h4>>> スタンプを獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
-        >QRコードを<br />読み取ろう！</a
-      >
+        >QRコードを<br />読み取ろう！</a>
 
       <h3 class="bingo-cell" id="no6">F. オープンチャット25人参加</h3>
       <h4>
         〜スポット・参加者の皆様が<br />自由に情報交換ができるオープンチャット〜
       </h4>
-      <h4>《現在の参加者・・・》</h4>
-      <h4 class="participants">読み込み中・・・</h4>
+      <h4>《現在の参加者： <span class="participants">読み込み中・・・</span>》</h4>
+      
       <h4></h4>
       <h4>>> 周りの人にも参加を声をかけて<br />みんなで達成しよう！</h4>
+      
       <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn"
         >LINEオープンチャットに<br />参加しよう！</a
       >
 
-      <h4> >> LINEオープンチャット参加方法</h4>
+      <h4 class="underLine">>> LINEオープンチャット参加方法</h4>
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右下の画像をタップ
+          <img src="./12-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          <img src="./12-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">③《LINEオープンチャットを始める》<br>をタップ
+          <img src="./12-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《新しいプロフィールで参加》を<br>タップ
+          <img src="./12-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤ニックネームを入力<br>
+          <img src="./12-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑥参加をタップ<br>
+          <img src="./12-6.png" class="slider-card-img" />
+        </div>
+        </div>
 
       <h3 class="bingo-cell" id="no7">G. スタンプ獲得5日目</h3>
       <h4>スタンプ獲得した合計の日数：5日</h4>
-      <h4>>> スタンプを獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+      
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >QRコードを<br />読み取ろう！</a
       >
       <h4>>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
       <a
         href="https://coolsharetakarazuka.github.io/map/
       "
@@ -167,52 +714,823 @@
         >マップページで<br />スポットを見つけよう！</a
       >
 
-
       <h3 class="bingo-cell" id="no8">H. 背景画像変更</h3>
       <h4>お好きなタイミングで背景画像を変更しよう！</h4>
-      <h4> >> 背景画像を変更しよう！</h4>
+      <h4 class="underLine">>> 背景画像を変更しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右上の画像をタップ
+          <img src="./4-1.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">②画面上部メニュー<br>《スタンプカード》をタップ
+          <img src="./4-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《②背景画像を変更する》<br>をタップ
+          <img src="./5-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④お好きな背景画像を<br>選択する
+          <img src="./5-4-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤《背景画像を変更する》<br>をタップ
+          <img src="./5-4-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉背景画像変更完了！
+          <img src="./5-5.png" class="slider-card-img" />
+        </div>
+        
+        
+      </div>
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >背景画像を<br />変更しよう！</a
-      > <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
-      
+      >
+      <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
+
       <h3 class="bingo-cell" id="no9">I. 16スタンプ獲得</h3>
+      <h4>16スタンプ獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a
+      >
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
       <h3 class="bingo-cell" id="no10">J. スタンプラリー10カ所達成</h3>
+
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a>
+
       <h3 class="bingo-cell" id="no11">K. オープンチャット50人参加</h3>
+
+      <h4>
+        〜スポット・参加者の皆様が<br />自由に情報交換ができるオープンチャット〜
+      </h4>
+      <h4>《現在の参加者： <span class="participants">読み込み中・・・</span>》</h4>
+      
+      <h4></h4>
+      <h4>>> 周りの人にも参加を声をかけて<br />みんなで達成しよう！</h4>
+      
+      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn"
+        >LINEオープンチャットに<br />参加しよう！</a
+      >
+
+      <h4 class="underLine">>> LINEオープンチャット参加方法</h4>
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右下の画像をタップ
+          <img src="./12-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          <img src="./12-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">③《LINEオープンチャットを始める》<br>をタップ
+          <img src="./12-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《新しいプロフィールで参加》を<br>タップ
+          <img src="./12-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤ニックネームを入力<br>
+          <img src="./12-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑥参加をタップ<br>
+          <img src="./12-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+
       <h3 class="bingo-cell" id="no12">L. スタンプ獲得15日目</h3>
+
+      <h4>スタンプ獲得した合計の日数：15日</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a
+      >
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
       <h3 class="bingo-cell" id="no14">M. 24スタンプ獲得</h3>
+      <h4>24スタンプ獲得しよう！</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a
+      >
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
       <h3 class="bingo-cell" id="no15">N. スタンプラリー15カ所達成</h3>
+
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a>
+
+
       <h3 class="bingo-cell" id="no16">O. オープンチャット100人参加</h3>
+
+      <h4>
+        〜スポット・参加者の皆様が<br />自由に情報交換ができるオープンチャット〜
+      </h4>
+      <h4>《現在の参加者： <span class="participants">読み込み中・・・</span>》</h4>
+      
+      <h4></h4>
+      <h4>>> 周りの人にも参加を声をかけて<br />みんなで達成しよう！</h4>
+      
+      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn"
+        >LINEオープンチャットに<br />参加しよう！</a
+      >
+
+      <h4 class="underLine">>> LINEオープンチャット参加方法</h4>
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右下の画像をタップ
+          <img src="./12-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          <img src="./12-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">③《LINEオープンチャットを始める》<br>をタップ
+          <img src="./12-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《新しいプロフィールで参加》を<br>タップ
+          <img src="./12-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤ニックネームを入力<br>
+          <img src="./12-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑥参加をタップ<br>
+          <img src="./12-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+
       <h3 class="bingo-cell" id="no17">P. スタンプ獲得30日目</h3>
+      
+      <h4>スタンプ獲得した合計の日数：30日</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a
+      >
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
       <h3 class="bingo-cell" id="no18">Q. スタンプカードを確認</h3>
       <h4>スタンプラリーカードを確認しよう！</h4>
-      <h4> >> スタンプラリーカードでできること</h4>
+      <h4 class="underLine">>> スタンプラリーカードでできること</h4>
       <ol>
         <li>現在のスタンプ数</li>
         <li>ビンゴの達成状況・限定画像の保存</li>
         <li>景品の応募</li>
       </ol>
-      <h4> >> スタンプラリーカード 確認方法</h4>
+      <h4 class="underLine">>> スタンプラリーカード 確認方法</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右上の画像をタップ
+          <img src="./4-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②画面上部メニュー<br>《スタンプカード》をタップ
+          <img src="./4-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《スタンプラリーカード》をタップ
+          <img src="./4-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《スタンプラリーカード》をタップ
+          <img src="./4-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉スタンプカード表示完了
+          <img src="./4-5.png" class="slider-card-img" />
+        </div>
+      </div>
+
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >スタンプカードを<br />確認しよう！</a
-      > <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
-      
+      >
+      <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
+
       <h3 class="bingo-cell" id="no19">R. 景品応募3回目</h3>
+
+      <h4>８スタンプ獲得して景品に応募しよう！</h4>
+      <h4 class="underLine">>> 景品応募方法</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">スタンプカード画面<br>もしくは<br>スタンプ獲得画面
+          <img src="./10-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">景品応募フォーム<br>ここをタップ
+          <img src="./10-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">景品応募フォーム
+          <img src="./10-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">好きな景品を<strong>全て</strong>選択
+          <img src="./10-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">本名フルネーム<br>を入力<br>
+          <img src="./10-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">郵便番号を入力<br>
+          <img src="./10-6.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">以降の住所を入力<br>
+          <img src="./10-7.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑧電話番号を<br>入力<br>
+          <img src="./10-8.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑨《送信》をタップ<br>
+          <img src="./10-9.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉景品応募完了<br>
+          <img src="./10-10.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a href="https://coolsharetakarazuka.github.io/gift/" class="btn"
+        >景品について</a
+      >
+
       <h3 class="bingo-cell" id="no20">S. 同じスポットで10回スタンプを押す</h3>
       <h4>お気に入りのスポットを見つけよう！</h4>
 
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a>
+
+
       <h3 class="bingo-cell" id="no21">T. オープンチャット150人参加</h3>
+
+      <h4>
+        〜スポット・参加者の皆様が<br />自由に情報交換ができるオープンチャット〜
+      </h4>
+      <h4>《現在の参加者： <span class="participants">読み込み中・・・</span>》</h4>
+      
+      <h4></h4>
+      <h4>>> 周りの人にも参加を声をかけて<br />みんなで達成しよう！</h4>
+      
+      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn"
+        >LINEオープンチャットに<br />参加しよう！</a
+      >
+
+      <h4 class="underLine">>> LINEオープンチャット参加方法</h4>
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右下の画像をタップ
+          <img src="./12-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">
+          <img src="./12-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">③《LINEオープンチャットを始める》<br>をタップ
+          <img src="./12-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《新しいプロフィールで参加》を<br>タップ
+          <img src="./12-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤ニックネームを入力<br>
+          <img src="./12-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑥参加をタップ<br>
+          <img src="./12-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+
       <h3 class="bingo-cell" id="no22">U. スタンプ獲得45日目</h3>
+
+      <h4>スタンプ獲得した合計の日数：45日</h4>
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a
+      >
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
       <h3 class="bingo-cell" id="no23">V. 終了証をゲット</h3>
       <h4>イベント終了後に、終了証をゲットしよう！</h4>
+      
+      <h4  class="underLine">終了証</h4>
+     
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>右上の画像をタップ
+          <img src="./4-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②画面上部メニュー<br>《スタンプカード》をタップ
+          <img src="./4-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《④終了証》<br>をタップ
+          <img src="./7-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④《終了証》<br>をタップ
+          <img src="./7-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉終了証をゲット！！
+          <img src="./7-5.png" class="slider-card-img" />
+        </div>
+      </div>
 
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >終了証を<br />ゲットしよう！</a
-      > <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
-      
+      >
+      <span>↑↑ ページ移動後、画面上部メニュー《スタンプカード》をタップ</span>
+
       <h3 class="bingo-cell" id="no24">W. イベントアンケート回答</h3>
       <h4>イベントアンケートにご協力お願いいたします🙇</h4>
 
+      <h4 class="underLine">イベントアンケート</h4>
+      <div class="slider-group">
+        <div class="slider-card">①終了証画面下部<br>《アンケートに回答》<br>をタップ
+          <img src="./8-1.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">② ①〜⑤の質問に回答
+          <img src="./8-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《アンケート送信》をタップ<br>
+          <img src="./8-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">🎉アンケート回答完了！<br>
+          <img src="./8-4.png" class="slider-card-img" />
+        </div>
+        </div><br>
+
       <h3 class="bingo-cell" id="no25">X. 同じスポットで15回スタンプを押す</h3>
+      <h4>お気に入りのスポットを見つけよう！</h4>
+
+      <h4 class="underLine">>> マップでスポットを見つけよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①LINE画面下部メニュー<br>上段真ん中の画像をタップ
+          <img src="./13-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【近い順】に並び替え
+          <img src="./13-2.png" class="slider-card-img" />
+        </div>
+  
+        <div class="slider-card">【スタンプ獲得可能スポット】<br>のみ表示
+          <img src="./13-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【地区(小学校校区)】<br>ごとに並び替え
+          <img src="./13-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【業種】<br>ごとに並び替え
+          <img src="./13-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">【営業日】<br>のスポットのみ表示
+          <img src="./13-6.png" class="slider-card-img" />
+        </div>
+        </div>
+
+      <a
+        href="https://coolsharetakarazuka.github.io/map/
+      "
+        class="btn"
+        >マップページで<br />スポットを見つけよう！</a
+      >
+
+      <h4 class="underLine">>> スタンプを獲得しよう！</h4>
+
+      <div class="slider-group">
+        <div class="slider-card">①初めての方：ユーザー登録画面から
+          <img src="./3-1.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">①2回目以降の方：LINEトーク画面から
+          <img src="./3-1-2.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">②《QRコードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットのQRコードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+      <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
+        >QRコードを<br />読み取ろう！</a>
     </div>
 
     <style>
@@ -220,12 +1538,13 @@
         font-weight: bold;
         border-style: double;
         padding: 5px 5px;
-        margin: 5px;
+        margin: 15px;
+        
       }
     </style>
 
-<!-- PapaParse を読み込む -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- PapaParse を読み込む -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script>
       fetch(
         "https://docs.google.com/spreadsheets/d/1-GCOfr4zhIXRpSz9jj0RQGoPKQLcMQboFuR1aMBjd9I/gviz/tq?tqx=out:csv"
@@ -241,124 +1560,32 @@
         });
     </script>
 
-    A. 1スタンプ獲得 step1 LINE友達追加 step2 ユーザー登録 step3
-    QRコードを読み取って、スタンプ獲得 マップでスポットを見つけよう！ B.
-    2日連続スタンプを押す 2日連続で外に出かけて、スタンプを獲得しよう！ C.
-    景品応募 景品に応募しよう！ 8スタンプ獲得ごとに1回応募できます！
-    《景品応募方法》 景品応募について D. ８スタンプ獲得 8スタンプ獲得しよう！
-    《スタンプ獲得方法》 E. スタンプラリー５カ所達成 5箇所のスポットに訪れよう！
-    《スポットの探し方》 マップページ　ここをタップ F. オープンチャット25人参加
-    LINEオープンチャットに参加しよう！
-    〜スポット・参加者の皆様が自由に情報交換ができるオープンチャット〜
-    現在の参加人数・・・ 周りの人にも参加を声をかけてみんなで達成しよう！
-    LINEオープンチャットについて G. スタンプ獲得5日目
-    スタンプ獲得した合計の日数！ スタンプを獲得しよう！ スポットを探そう！ H.
-    背景画像変更 背景画像を変更しよう！ 《背景画像変更方法》
-    背景画像は、いつでも変更できます！ I. 16スタンプ獲得 J.
-    スタンプラリー10カ所達成 K. オープンチャット50人参加 L. スタンプ獲得15日目
-    M. 24スタンプ獲得 N. スタンプラリー15カ所達成 O. オープンチャット100人参加
-    P. スタンプ獲得30日目 Q. スタンプカードを確認 スタンプカードを確認しよう
-    できること ①現在のスタンプ数 ②ビンゴの達成状況・限定画像の保存 ③景品の応募
-    《スタンプカードの確認方法》 R. 景品応募3回目 S.
-    同じスポットで10回スタンプを押す お気に入りのスポットを見つけよう！
-    スポットを探そう スタンプを獲得しよう 　 T. オープンチャット150人参加 U.
-    スタンプ獲得45日目 V. 終了証をゲット W. イベントアンケート回答 X.
-    同じスポットで15回スタンプを押す
+    <style>
+      .slider-group {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+        display: flex;
+        overflow-x: auto;
+      }
 
-    <!--
-    <br />
-    <h2>チャレンジの攻略方法</h2>
-    <h3>攻略方法を知りたい項目をタップ！！</h3>
-    <details class="according">
-      <summary class="no1">A. １スタンプ獲得</summary>
-      <p>スタンプラリーを始めよう！！</p>
-    </details>
+      .slider-card {
+        flex: 0 0 auto;
+        max-width: 250px;
+        height: 100%;
+        margin-right: 20px;
+      }
 
-    <details class="according">
-      <summary class="no2">B. 2日連続スタンプ獲得</summary>
-      <p>2日連続でスタンプを獲得しよう！</p>
-    </details>
+      .slider-card img {
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
 
-    <details class="according">
-      <summary class="no3">
-        C. 景品応募 <br />
-        R. 景品応募3回目
-      </summary>
-      <p>
-      <h4>景品に応募しよう</h4>      
-      <h5>8スタンプ獲得ごとに何度も応募できます</h5>
-      <h5>応募方法</h5>
-      <h5>詳しくはここから ↓↓ </h5>
-      <a class="btn"href="https://coolsharetakarazuka.github.io/gift/">景品応募について</a></p>
-    </details>
+    
 
-    <details class="according">
-      <summary class="no4">
-        D. 8スタンプ獲得<br />I. 16スタンプ獲得<br />M. 24スタンプ獲得<br />
-      </summary>
-      <h5>いろいろなスポットを回って<br>スタンプをゲットしよう！！<h5></h5>
-      <h5>スタンプ獲得方法</h5>
-      <a class="btn" href="https://coolsharetakarazuka.github.io/map/">スポットを探そう！！</a>
-      <a class="btn" href="https://liff.line.me/2007302862-3mj9r7W5">スタンプを獲得しよう！！</a>
-    </details>
-
-    <details class="according">
-      <summary class="no5">
-        E. スタンプラリー5カ所達成<br />J. スタンプラリー10カ所達成<br />N.
-        スタンプラリー15カ所達成
-      </summary>
-      <h5>異なるスポットで、<br>スタンプをゲットしよう！！</h5>
-      <h5>自分が何カ所のスポット達成しているのか?</h5>
-    </details>
-
-    <details class="according">
-      <summary class="no6">
-        F. オープンチャット25人参加<br />K. オープンチャット50人参加<br />O.
-        オープンチャット100人参加<br />T. オープンチャット150人参加<br />
-      </summary>
-      <h5>オープンチャットに参加しよう！！</h5>
-      <h5>周りの方にもシェアしてみんなで達成しよう</h5>
-
-      <h5>現在のオープンチャット参加者・・・<br>
-      3人</h5>
-
-      <h5>参加方法</h5>
-      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn">オープンチャットに参加する</a>
-    </details>
-
-    <details class="according">
-      <summary class="no7">
-        G. スタンプ獲得5日目<br />L. スタンプ獲得15日目<br />P.
-        スタンプ獲得20日目<br />U. スタンプ獲得45日目<br />
-      </summary>
-      <h5>いろいろなスポットを回って<br>スタンプをゲットしよう！！<h5></h5>
-      <h5>スタンプ獲得方法</h5>
-      <a class="btn" href="https://coolsharetakarazuka.github.io/map/">スポットを探そう！！</a>
-      <a class="btn" href="https://liff.line.me/2007302862-3mj9r7W5">スタンプを獲得しよう！！</a>
-    </details>
-
-    <details class="according">
-      <summary class="no8">
-        H. 背景画像を変更<br />Q. スタンプカードを確認
-      </summary>
-      <p></p>
-    </details>
-
-    <details class="according">
-      <summary class="no9">
-        S. 同じスポットで10回スタンプを押す<br />X.
-        同じスポットで10回スタンプを押す
-      </summary>
-      <p></p>
-    </details>
-
-    <details class="according">
-      <summary class="no10">
-        V. 終了証をゲット<br />W. イベントアンケート回答
-      </summary>
-      <p></p>
-    </details>
-    -->
+    
   </body>
   <style>
     h1 {
@@ -553,6 +1780,12 @@
 
     img.explain {
       width: 100%;
+    }
+
+    h4.underLine{
+      border-bottom-style: double;
+      border-bottom-color: red;
+      border-width: 3px;
     }
   </style>
 

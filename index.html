@@ -19,11 +19,12 @@
     </h1>
 
     <div class="nav">
+      <div class="menu">
         <strong>MENU</strong>
       <input id="drawer_input" class="drawer_hidden" type="checkbox">
 
       <label for="drawer_input" class="drawer_open"><span></span></label>
-
+    </div>
       <nav class="nav_content">
         <h2>攻略したいマスをタップ</h2>
         <img src="bingo.png" usemap="#ImageMap" alt="" class="explain" />
@@ -90,14 +91,22 @@ document.addEventListener('DOMContentLoaded', () => {
   <style>
       .header{
           display: flex;
-          position:sticky;
-          top: 0;
+          
           justify-content: space-between;
           align-items: center;
           padding: 0,20px;
           background: skyblue;
-          z-index: 999;
           
+          
+      }
+
+      div.menu{
+        position:fixed;
+          top: 7px;
+          right: 7px;;
+          background: skyblue;
+          padding: 10px;
+          z-index: 999;
       }
 
       .logo{
@@ -1532,101 +1541,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="https://liff.line.me/2007302862-3mj9r7W5" class="btn"
         >QRコードを<br />読み取ろう！</a>
     </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    
- 
-<nav>
-    <ul class="menu">
-      <li>
-        <a href="https://coolsharetakarazuka.github.io/home/" target="_self"
-          ><i class="fa-solid fa-house"></i><br /><span class="iconname"
-            >ホーム</span
-          ></a
-        >
-      </li>
-      <li>
-        <a href="https://coolsharetakarazuka.github.io/map/" target="_self"
-          ><i class="fa-solid fa-location-dot"></i><br /><span class="iconname"
-            >マップ</span
-          ></a
-        >
-      </li>
-      <li>
-        <a
-          href="
-        https://coolsharetakarazuka.github.io/how_to_play/" target="_self"
-          ><i class="fa-solid fa-list-ol"></i><br /><span class="iconname"
-            >遊び方</span
-          ></a
-        >
-      </li>
-      <li>
-        <a href="https://liff.line.me/2007302862-3mj9r7W5" target="_self"
-          ><i class="fa-solid fa-stamp"></i><br /><span class="iconname"
-            >スタンプラリー</span
-          ></a
-        >
-      </li>
-    </ul>
-  </nav>
- 
-<style>
-      .menu {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        background: white;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        padding: 10px 0;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .menu li {
-        display: inline-block;
-        text-align: center;
-      }
-
-      .menu a {
-        text-decoration: none;
-        color: black;
-      }
-
-      .menu a i {
-        font-size: 24px;
-      }
-
-      .menu a span {
-        display: block;
-        font-size: 12px; /* テキストサイズ */
-        margin-top: 5px;
-      }
-
-      @media (max-width: 768px) {
-        .menu {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-        }
-
-        .menu li {
-          padding: 5px;
-        }
-      }
-</style>
 
     <style>
       .bingo-cell {

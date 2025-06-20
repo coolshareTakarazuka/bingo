@@ -24,7 +24,7 @@
       <input id="drawer_input" class="drawer_hidden" type="checkbox">
 
       <label for="drawer_input" class="drawer_open"><span></span></label>
-    </div>
+    
       <nav class="nav_content">
         <h2>攻略したいマスをタップ</h2>
         <img src="bingo.png" usemap="#ImageMap" alt="" class="explain" />
@@ -54,8 +54,9 @@
       <area shape="rect" coords="570,1310,840,1581" href="#no23" alt="" />
       <area shape="rect" coords="847,1310,1118,1580" href="#no24" alt="" />
       <area shape="rect" coords="1125,1309,1390,1580" href="#no25" alt="" />
+    </div>
     </map>
-  </div>
+
 
       </nav>
   </div>
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       .logo{
           
-          font-size: 24px;
+          font-size: 15px;
       }
 
       .drawer_hidden{
@@ -176,70 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
           transition: .5s;
       }
 
-      .nav_list{
-          list-style:none;
-          counter-reset: li;
-
-      }
-
-      .nav_list li:nth-child(4n+1){
-        border: dashed 1px #FFA79F;
-      }
-
-      .nav_list li:nth-child(4n+2){
-        border: dashed 1px #fbaf5d;
-      }
-
-      .nav_list li:nth-child(4n+3){
-        border: dashed 1px #9FCDFF;
-      }
-
-      .nav_list li:nth-child(4n+4){
-        border: dashed 1px #AFEBB6;
-      }
-      .nav_list li {
-      position: relative;
-      font-weight: bold;
-      line-height: 28px;
-      padding-left: 40px;
-      margin: 10px 0;
-      }
-
-
-      .nav_list li:before{
-        counter-increment: li;
-      content: counter(li);
-        position: absolute;
-        left: -1px;
-        color: #fff;
-        text-align: center;
-        line-height: 30px;
-        width: 30px;
-        height: 30px;
-        top: 50%;
-        -moz-transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-
-      }
-
-      .nav_list li:nth-child(4n+1):before{
-        background: #FFA79F;
-      }
       
-      .nav_list li:nth-child(4n+2):before{
-        background: #fbaf5d;
-      }
-      
-      .nav_list li:nth-child(4n+3):before{
-        background: #9FCDFF;
-      }
-      
-      .nav_list li:nth-child(4n+4):before{
-        background: #AFEBB6;
-      }
       
 
       #drawer_input:checked ~ .nav_content{

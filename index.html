@@ -1526,7 +1526,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const participants = peopleData[0]?.participants || "不明";
 
-          document.querySelector(".participants").textContent = participants;
+          document.querySelectorAll(".participants").forEach((el) => {
+  el.textContent = participants;
+});
         });
     </script>
 
